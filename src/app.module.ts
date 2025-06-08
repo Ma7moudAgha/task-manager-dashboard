@@ -11,7 +11,8 @@ import { CategoriesModule } from './modules/categories/categories.module';
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost:27017/task-manager'),
-    MongooseModule.forRoot('mongodb://mongodb+srv://magha7989:A0DbwuoyI1eWeu1y@cluster0.d3xjc4n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/task-manager'),
+    // MongooseModule.forRoot('mongodb://mongodb+srv://magha7989:A0DbwuoyI1eWeu1y@cluster0.d3xjc4n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/task-manager'),
+    MongooseModule.forRoot('mongodb+srv://magha7989:A0DbwuoyI1eWeu1y@cluster0.d3xjc4n.mongodb.net/task-manager?retryWrites=true&w=majority&appName=Cluster0'),
     TasksModule,
     AuthModule,
     UsersModule,
