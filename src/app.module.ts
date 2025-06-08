@@ -7,16 +7,16 @@ import { TasksModule } from './modules/tasks/tasks.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { CategoriesModule } from './modules/categories/categories.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost:27017/task-manager'),
-    // MongooseModule.forRoot('mongodb://mongodb+srv://magha7989:A0DbwuoyI1eWeu1y@cluster0.d3xjc4n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/task-manager'),
-    MongooseModule.forRoot('mongodb+srv://magha7989:A0DbwuoyI1eWeu1y@cluster0.d3xjc4n.mongodb.net/task-manager?retryWrites=true&w=majority&appName=Cluster0'),
+    ConfigModule.forRoot({ isGlobal: true }), // لتحميل .env
+    MongooseModule.forRoot(process.env.DATABASE_URI), // الاتصال بـ MongoDB
     TasksModule,
     AuthModule,
     UsersModule,
-    CategoriesModule
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
